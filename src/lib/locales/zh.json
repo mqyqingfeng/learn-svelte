@@ -1,0 +1,34 @@
+{
+	"userProfile": {
+		"navbar": {
+			"description": "管理账户信息"
+		},
+		"start": {
+			"dangerSection": {
+				"deleteAccountButton": "删除账户",
+				"deleteAccountTitle": "删除账户",
+				"deleteAccountDescription": "删除账户和所有关联信息",
+				"title": "账户终止"
+			},
+			"headerSubtitle__account": "管理账户信息",
+			"headerSubtitle__security": "管理安全设置",
+			"emailAddressesSection": {
+				"detailsTitle__primary": "主邮箱地址",
+				"detailsSubtitle__primary": "此邮箱地址是主邮箱地址",
+				"destructiveActionTitle": "删除",
+				"destructiveActionSubtitle": "删除此邮箱地址并且从账户中取消关联"
+			},
+			"connectedAccountsSection": {
+				"title__connectionFailed": "重试连接失败",
+				"destructiveActionSubtitle": "从您的账户中移除此连接的账户",
+				"destructiveActionAccordionSubtitle": "移除连接账户"
+			},
+			"activeDevicesSection": {
+				"detailsTitle": "当前设备",
+				"detailsSubtitle": "这是您当前正在使用的设备",
+				"destructiveActionTitle": "退出",
+				"destructiveActionSubtitle": "退出设备"
+			}
+		}
+	}
+}

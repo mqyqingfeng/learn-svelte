@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
+</script>
+
+<SignedIn let:user>
+	欢迎 {user?.fullName}!
+</SignedIn>
