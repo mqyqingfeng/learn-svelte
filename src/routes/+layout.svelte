@@ -7,6 +7,7 @@
 	import '../app.css';
 
 	import ModeSwitcher from '$lib/components/ModeSwitcher.svelte';
+	import { Toaster } from '$lib/components/ui/sonner';
 </script>
 
 <nav class="flex h-[60px] w-full items-center justify-between p-4">
@@ -24,6 +25,8 @@
 		<ModeSwitcher />
 	</div>
 </nav>
+
+<Toaster position="top-right" richColors />
 
 <slot />
 

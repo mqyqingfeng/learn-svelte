@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from './$types.js';
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte';
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 
@@ -7,10 +8,16 @@
 		CardDescription,
 		CardFooter,
 		CardHeader,
-		CardTitle
+		CardTitle,
+		CardContent
 	} from '$lib/components/ui/card';
 	import { Skeleton } from '$lib/components/ui/skeleton';
-	import { Button } from '$lib/components/ui/button';
+	import CreateListModal from '$lib/components/CreateListModal.svelte';
+	import ListFooter from '$lib/components/ListFooter.svelte';
+	import { ListMap } from '$lib/const';
+	import { cn } from '$lib/utils';
+
+	const { data }: { data: PageData } = $props();
 </script>
 
 <Card class="mx-4">
@@ -28,6 +35,26 @@
 		</CardDescription>
 	</CardHeader>
 	<CardFooter>
-		<Button>添加清单</Button>
+		<CreateListModal />
 	</CardFooter>
 </Card>
+
+<div class="mx-4 mt-6 flex flex-col gap-4">
+	{#if data.checkLists.length > 0}
+		{#each data.checkLists as { id, name, color }, index (id)}
+			<Card class={cn('w-full text-white sm:col-span-2', ListMap.get(color))}>
+				<CardHeader>
+					<CardTitle>{name}</CardTitle>
+				</CardHeader>
+				<CardContent>
+					<p>目前没有任务</p>
+				</CardContent>
+				<CardFooter class="flex-col pb-2">
+					<ListFooter checkList={data.checkLists[index]} />
+				</CardFooter>
+			</Card>
+		{/each}
+	{:else}
+		<span class="text-center">尚未创建清单，快创建一个吧</span>
+	{/if}
+</div>
