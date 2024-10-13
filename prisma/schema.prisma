@@ -1,10 +1,10 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+    provider = "mysql"
+    url      = env("DATABASE_URL")
 }
 
 model List {
@@ -14,4 +14,19 @@ model List {
     color     String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+
+    tasks Task[]
+}
+
+
+model Task {
+    id        Int       @id @default(autoincrement())
+    content   String
+    userId    String
+    done      Boolean   @default(false)
+    expiresAt DateTime?
+    createdAt DateTime  @default(now())
+
+    ListId Int
+    list   List @relation(fields: [ListId], references: [id], onDelete: Cascade)
 }

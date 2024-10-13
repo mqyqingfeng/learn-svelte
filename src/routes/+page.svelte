@@ -14,6 +14,7 @@
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import CreateListModal from '$lib/components/CreateListModal.svelte';
 	import ListFooter from '$lib/components/ListFooter.svelte';
+	import TaskItem from '$lib/components/TaskItem.svelte';
 	import { ListMap } from '$lib/const';
 	import { cn } from '$lib/utils';
 
@@ -41,13 +42,21 @@
 
 <div class="mx-4 mt-6 flex flex-col gap-4">
 	{#if data.checkLists.length > 0}
-		{#each data.checkLists as { id, name, color }, index (id)}
+		{#each data.checkLists as { id, name, color, tasks }, index (id)}
 			<Card class={cn('w-full text-white sm:col-span-2', ListMap.get(color))}>
 				<CardHeader>
 					<CardTitle>{name}</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p>目前没有任务</p>
+					{#if tasks && tasks.length === 0}
+						<p>目前没有任务</p>
+					{:else if tasks && tasks.length > 0}
+						<div>
+							{#each tasks as task (task.id)}
+								<TaskItem {task} />
+							{/each}
+						</div>
+					{/if}
 				</CardContent>
 				<CardFooter class="flex-col pb-2">
 					<ListFooter checkList={data.checkLists[index]} />
