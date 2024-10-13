@@ -35,7 +35,17 @@
 	"type": "module",
 	"dependencies": {
 		"@clerk/localizations": "^3.2.0",
+		"@internationalized/date": "^3.5.6",
+		"bits-ui": "^0.21.16",
 		"clerk-sveltekit": "^0.4.2",
-		"lodash.merge": "^4.6.2"
+		"clsx": "^2.1.1",
+		"formsnap": "^1.0.1",
+		"lodash.merge": "^4.6.2",
+		"lucide-svelte": "^0.452.0",
+		"mode-watcher": "^0.4.1",
+		"sveltekit-superforms": "^2.19.1",
+		"tailwind-merge": "^2.5.3",
+		"tailwind-variants": "^0.2.1",
+		"zod": "^3.23.8"
 	}
 }

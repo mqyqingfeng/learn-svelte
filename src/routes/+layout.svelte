@@ -5,6 +5,8 @@
 	import ClerkLoading from 'clerk-sveltekit/client/ClerkLoading.svelte';
 
 	import '../app.css';
+
+	import ModeSwitcher from '$lib/components/ModeSwitcher.svelte';
 </script>
 
 <nav class="flex h-[60px] w-full items-center justify-between p-4">
@@ -19,6 +21,7 @@
 		<SignedOut>
 			<a href="/signin">登录</a> <span>|</span> <a href="/signup">注册</a>
 		</SignedOut>
+		<ModeSwitcher />
 	</div>
 </nav>
 
